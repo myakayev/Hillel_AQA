@@ -1,1 +1,36 @@
-#target/
+# Каталоги
+target/
+out/
+
+# Файли зі збірки та залежностями
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+
+# Файли і каталоги Maven
+log/
+target/
+.idea/
+*.iml
+
+# Файли і каталоги Eclipse
+.classpath
+.project
+.settings/
+
+# Файли журналу із звітами про збірку
+/build/
+/build.log
+
+# Файли з інтегрованих розробних середовищ (IDE) та текстові файли
+/.classpath
+/.project
+/.settings/
+*.iml
+*.ipr
+*.iws
+
+# Папка зі зборками на Grails
+/target/
