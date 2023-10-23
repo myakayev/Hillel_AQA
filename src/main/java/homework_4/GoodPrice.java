@@ -1,33 +1,36 @@
 package homework_4;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class GoodPrice {
     public static void main(String[] args) {
-        //double price = Double.parseDouble(args[0]);
+        BigDecimal price = new BigDecimal(args[0]);
         System.out.println("Enter the amount of goods");
         Scanner scanner = new Scanner(System.in);
         int amount = scanner.nextInt();
         scanner.close();
-        System.out.println(discountCalculation(amount));
+        System.out.println("The sum of purchase: " + sumOfGoods(price, discountCalculation(amount), amount));
     }
 
-    static  double discountCalculation (int amount) {
-        double i = 0.2;
-        double discount = 12;
-        if (amount >= 80) return 13;
-        if (amount > 30 && amount <= 80) {
-            while ((amount - 30) == 0) {
-                if (amount >= 31) {
+    static BigDecimal discountCalculation (int amount) {
+        BigDecimal i = BigDecimal.valueOf(0.4);
+        BigDecimal discount = BigDecimal.valueOf(12);
+        if (amount > 80) return BigDecimal.valueOf(13);
+        else if (amount > 30) {
+            while (amount >= 40) {
                     amount -= 10;
-                    i += 0.2;
-                    discount += i;
-                } else return discount;
+                    discount = discount.add(i);
             }
             return discount;
         }
-        else if (amount > 20) return 10;
-        else if (amount > 10) return  5;
-        else return 0;
+        else if (amount > 20) return BigDecimal.valueOf(10);
+        else if (amount > 10) return  BigDecimal.valueOf(5);
+        else return BigDecimal.valueOf(0);
+    }
+    static BigDecimal sumOfGoods (BigDecimal price, BigDecimal discount, int amount) {
+        discount = discount.multiply(BigDecimal.valueOf(0.01));
+        BigDecimal discountPrice = price.multiply((BigDecimal.valueOf(1).subtract(discount)));
+        return discountPrice.multiply(BigDecimal.valueOf(amount));
     }
 }
