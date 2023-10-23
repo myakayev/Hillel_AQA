@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class SalaryForMonth {
     public static void main(String[] args) {
-        System.out.println(workingDays(1));
+        System.out.println(workingDays(4));
     }
 
 
@@ -29,10 +29,10 @@ public class SalaryForMonth {
         int workingDays = 0;
         int k = 0;
         int[] months = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        for (int i = 0; i < months[month]; i++) {
+        for (int i = 0; i < months[month - 1]; i++) {
                 k++;
                 if (k <= 5) workingDays++;
-                if (i == 7) k = 0;
+                if (k == 7) k = 0;
         }
         return workingDays;
     }
