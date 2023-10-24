@@ -4,7 +4,11 @@ import java.math.BigDecimal;
 
 public class SalaryForMonth {
     public static void main(String[] args) {
-        System.out.println(workingDays(4));
+        int month = Integer.parseInt(args[0]);
+        BigDecimal hourlyCost = new BigDecimal(args[1]);
+        BigDecimal taxRate = new BigDecimal(args[2]);
+        System.out.println("Salary for month without taxes: " + salaryPerMonth(workingDays(month),daySalary(hourlyCost)));
+        System.out.println("Salary for month with taxes: " + salaryPerMonthWithTaxes(workingDays(month),daySalaryWithTaxes(hourlyCost,taxRate)));
     }
 
 
@@ -36,5 +40,4 @@ public class SalaryForMonth {
         }
         return workingDays;
     }
-
 }
