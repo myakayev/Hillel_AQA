@@ -26,9 +26,9 @@ public class Installment {
         Scanner scanner1 = new Scanner(System.in);
         String answer = scanner1.nextLine();
         if (answer.equals("1")) {
-            System.out.println("The number of monthly payments - " + calculateNumberOfPayments());
+            System.out.println("The number of monthly payments: " + calculateNumberOfPayments());
         } else if (answer.equals("2")) {
-            System.out.println("The sum of the monthly payment - " + calculateMonthlyPayment());
+            System.out.println("The sum of the monthly payment: " + calculateMonthlyPayment());
         } else System.out.println("Please enter '1' or '2'!");
         //scanner.close();
         //scanner1.close();

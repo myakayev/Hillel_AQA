@@ -44,7 +44,6 @@ public class Figures {
                 System.out.println("Ok, let's continue! :)");
             }
         } while (checker);
-        scanner.close();
     }
     private static void printTriangle() {
         Scanner scanner = new Scanner(System.in);
@@ -59,7 +58,6 @@ public class Figures {
             }
             System.out.println();
         }
-        scanner.close();
     }
 
     private static void printInvertedRightTriangle() {
@@ -76,7 +74,6 @@ public class Figures {
             }
             System.out.println();
         }
-        scanner.close();
     }
 
     private static void printRightTriangle() {
@@ -91,7 +88,6 @@ public class Figures {
             i++;
             System.out.println();
         }
-        scanner.close();
     }
 
     private static void printRectangle() {
@@ -107,6 +103,5 @@ public class Figures {
             }
             System.out.println();
         }
-        scanner.close();
     }
 }
