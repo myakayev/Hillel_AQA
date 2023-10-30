@@ -30,13 +30,11 @@ public class Installment {
         } else if (answer.equals("2")) {
             System.out.println("The sum of the monthly payment: " + calculateMonthlyPayment());
         } else System.out.println("Please enter '1' or '2'!");
-        //scanner.close();
-        //scanner1.close();
     }
 
     BigDecimal calculateNumberOfPayments() {  // кількість платежів, якщо відомо місячний платіж
            BigDecimal creditSum = this.creditSum;
-           BigDecimal monthlyPercent = this.monthlyPercent.multiply(BigDecimal.valueOf(0.01));;
+           BigDecimal monthlyPercent = this.monthlyPercent.multiply(BigDecimal.valueOf(0.01));
            BigDecimal monthlyPayment;
            BigDecimal numberOfPayments;
            BigDecimal one = new BigDecimal("1");
