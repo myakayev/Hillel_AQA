@@ -2,37 +2,37 @@ package homework_6;
 
 public class Triangle {
     //sides of the triangle (mm)
-    int a;
-    int b;
-    int c;
+    int sideA;
+    int sideB;
+    int sideC;
 
     public Triangle() {
     }
 
-    public Triangle(int a, int b, int c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    public Triangle(int sideA, int b, int sideC) {
+        this.sideA = sideA;
+        this.sideB = b;
+        this.sideC = sideC;
     }
 
-    public int getA() {
-        return a;
+    public int getSideA() {
+        return sideA;
     }
 
-    public int getB() {
-        return b;
+    public int getSideB() {
+        return sideB;
     }
 
-    public int getC() {
-        return c;
+    public int getSideC() {
+        return sideC;
     }
 
     int perimeter () {
-        return a + b + c;
+        return sideA + sideB + sideC;
     }
     double square () {
-        double p = (double) (a + b + c) / 2; // half perimeter
-        return Math.sqrt(p * (p - a) * (p -b) * (p - c));
+        double p = (double) (sideA + sideB + sideC) / 2; // half perimeter
+        return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
     }
 
 }
