@@ -5,5 +5,6 @@ public class Main {
         Horse horse = new Horse("Vasya", "Red");
         Horse horse1 = new Horse("Vasya", "Red");
         System.out.println(horse.equals(horse1));
+        System.out.println(horse.toString());
     }
 }
