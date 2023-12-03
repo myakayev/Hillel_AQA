@@ -1,18 +1,14 @@
 package homework_10;
 
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+        System.setProperty("console.encoding", "UTF-8");
         char[] charArray = args[0].toCharArray();
         Map<Character, Integer> result = countOfLetter(charArray);
         System.out.println(result);
-        System.out.println(result.keySet());
-
     }
 
     private static Map<Character, Integer> countOfLetter (char[] charArray){
