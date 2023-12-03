@@ -8,7 +8,7 @@ public class Hamster extends Pets {
     }
 
     @Override
-    protected void voice() {
+    public void voice() {
         System.out.println("Squeaking or chirping");
     }
 

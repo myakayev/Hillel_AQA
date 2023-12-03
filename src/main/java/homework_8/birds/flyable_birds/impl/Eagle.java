@@ -9,7 +9,7 @@ public class Eagle extends FlyableBird {
     }
 
     @Override
-    protected void voice() {
+    public void voice() {
         System.out.println("Shrill screams or whistles (depends of situation)");
     }
 }

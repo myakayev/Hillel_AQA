@@ -9,7 +9,7 @@ public class Dog extends Pets implements Swimable {
     }
 
     @Override
-    protected void voice() {
+    public void voice() {
         System.out.println("Bow-wow!");
     }
 

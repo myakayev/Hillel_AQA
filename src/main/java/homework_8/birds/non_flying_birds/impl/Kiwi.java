@@ -8,7 +8,7 @@ public class Kiwi extends NonFlyableBird {
     }
 
     @Override
-    protected void voice() {
+    public void voice() {
         System.out.println("Melodious and tender whistling");
     }
 

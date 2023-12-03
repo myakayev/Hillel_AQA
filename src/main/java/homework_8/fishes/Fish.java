@@ -10,7 +10,7 @@ public abstract class Fish extends Animal implements Swimable {
     }
 
     @Override
-    protected void voice() {
+    public void voice() {
         System.out.println("Silent as a fish");
     }
 

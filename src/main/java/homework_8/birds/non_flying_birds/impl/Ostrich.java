@@ -9,7 +9,7 @@ public class Ostrich extends NonFlyableBird {
     }
 
     @Override
-    protected void voice() {
+    public void voice() {
         System.out.println("Low booming or drumming sounds");
     }
 }

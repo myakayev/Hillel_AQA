@@ -10,7 +10,7 @@ public class Penguin extends NonFlyableBird implements Swimable {
     }
 
     @Override
-    protected void voice() {
+    public void voice() {
         System.out.println("Braying or trumpeting");
     }
 

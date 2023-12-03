@@ -1,5 +1,8 @@
 package homework_8;
 
+import lombok.ToString;
+
+@ToString
 public abstract class Animal {
     private String name;
     private String color;
@@ -22,5 +25,5 @@ public abstract class Animal {
     void introduction(){
         System.out.println("My name is " + name + ". I am " + color);
     }
-    protected abstract void voice();
+    public abstract void voice();
 }
