@@ -11,10 +11,13 @@ public class SalaryCalculation {
     public static void main(String[] args) {
         BigDecimal hourlyCost = new BigDecimal(args[0]);
         BigDecimal taxRate = new BigDecimal(args[1]);
-        System.out.println(Arrays.toString(workingDaysForEachMonth()));
-        //  System.out.println("Salary for month without taxes: " + salaryPerMonth(workingDays(month),daySalary(hourlyCost)));
-        // System.out.println("Salary for month with taxes: " + salaryPerMonthWithTaxes(workingDays(month),daySalaryWithTaxes(hourlyCost,taxRate)));
-
+        BigDecimal daySalary = daySalary(hourlyCost);
+        BigDecimal daySalaryWithTaxes = daySalaryWithTaxes(hourlyCost, taxRate);
+        BigDecimal[] salaryForEachMonth = salaryForEachMonth(workingDaysForEachMonth(), daySalary);
+        BigDecimal[] salaryForEachMonthWithTaxes = salaryForEachMonthWithTaxes(workingDaysForEachMonth(), daySalaryWithTaxes);
+        for (String element : salaryCalculation(salaryForEachMonthWithTaxes, salaryForEachMonth)) {
+            System.out.println(element);
+        }
     }
 
     static BigDecimal daySalary(BigDecimal hourlyCost) {
@@ -32,9 +35,9 @@ public class SalaryCalculation {
         int[] months = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int[] workingDaysForEachMonth = new int[12];
         int k = 0;
-        for (int i = 0; i < 12 ; i++) {
+        for (int i = 0; i < 12; i++) {
             int workingDays = 0;
-            for (int j = 0; j < months[i] ; j++) {
+            for (int j = 0; j < months[i]; j++) {
                 k++;
                 if (k <= 5) workingDays++;
                 if (k == 7) k = 0;
@@ -53,7 +56,7 @@ public class SalaryCalculation {
         return salaryForEachMonth;
     }
 
-    static  BigDecimal[] salaryForEachMonthWithTaxes(int[] workingDaysForEachMonth, BigDecimal daySalaryWithTaxes) {
+    static BigDecimal[] salaryForEachMonthWithTaxes(int[] workingDaysForEachMonth, BigDecimal daySalaryWithTaxes) {
         BigDecimal[] salaryForEachMonth = new BigDecimal[workingDaysForEachMonth.length];
         for (int i = 0; i < workingDaysForEachMonth.length; i++) {
             salaryForEachMonth[i] = daySalaryWithTaxes.multiply(BigDecimal.valueOf(workingDaysForEachMonth[i]));
@@ -62,5 +65,23 @@ public class SalaryCalculation {
         return salaryForEachMonth;
     }
 
-}
+    static String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 
+    static String[] salaryCalculation(BigDecimal[] salaryForEachMonthWithTaxes, BigDecimal[] salaryForEachMonth) {
+        String[] finalArray = new String[13];
+        for (int i = 0; i < 12; i++) {
+            finalArray[i] = months[i] + " " + salaryForEachMonthWithTaxes[i].toString() + " " +
+                    salaryForEachMonth[i].toString();
+            finalArray[12] = "TOTAL: " + sum(salaryForEachMonthWithTaxes) + " " + sum(salaryForEachMonth);
+        }
+        return finalArray;
+    }
+
+    static BigDecimal sum(BigDecimal[] array) {
+        BigDecimal sum = BigDecimal.ZERO;
+        for (BigDecimal number : array) {
+            sum = sum.add(number);
+        }
+        return sum;
+    }
+}
