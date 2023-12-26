@@ -7,13 +7,14 @@ import java.time.Duration;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriver browser = new ChromeDriver();
-        browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         TestingPage testingPage = new TestingPage(browser);
-        System.out.println(testingPage.openPage().getCourses());
-        //List<String> list = testingPage.getCourses();
-        testingPage.openPage().getCourses();
+        //System.out.println(testingPage.openPage().getCourses());
+        //testingPage.openPage().getCourses();
+        testingPage.openPage().goToCategory("Програмування");
+        Thread.sleep(3000);
         browser.quit();
     }
 }
