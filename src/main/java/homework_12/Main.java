@@ -12,8 +12,9 @@ public class Main {
         browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         TestingPage testingPage = new TestingPage(browser);
         //System.out.println(testingPage.openPage().getCourses());
-        //testingPage.openPage().getCourses();
-        testingPage.openPage().goToCategory("Програмування");
+        testingPage.openPage();
+       // testingPage.openPage().goToCategory("Програмування");
+        System.out.println(testingPage.getOpportunities());
         Thread.sleep(3000);
         browser.quit();
     }
