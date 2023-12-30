@@ -11,10 +11,11 @@ public class Main {
         WebDriver browser = new ChromeDriver();
         browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         TestingPage testingPage = new TestingPage(browser);
-        //System.out.println(testingPage.openPage().getCourses());
         testingPage.openPage();
+        //System.out.println(testingPage.getCourses());
+       // System.out.println(testingPage.getAdditionalCourses());
+        testingPage.getOpportunities();
        // testingPage.openPage().goToCategory("Програмування");
-        System.out.println(testingPage.getOpportunities());
         Thread.sleep(3000);
         browser.quit();
     }

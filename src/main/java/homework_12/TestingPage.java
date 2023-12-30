@@ -8,9 +8,10 @@ import java.util.List;
 
 public class TestingPage {
     private static final String TESTING_PAGE = "https://ithillel.ua/courses/testing";
-    private static final String COURSES_XPATH_SELECTOR = "//*[@class='block-profession_list']/..//p[@class='profession-bar_title']";
-    private static final String ADDITIONAL_COURSES_CSS_SELECTOR = "profession-bar_title";
-    private static final String OPPORTUNITIES_SEARCH = "//p[@class='p-s opportunity-item_descr']";
+    private static final String COURSES_XPATH_SELECTOR = "//*[contains(text(), 'QA')]/ancestor::*[@class='block-profession_group']//*[@class='profession-bar_title']";
+    private static final String ADDITIONAL_COURSES_XPATH_SELECTOR = "//*[contains(text(), 'Додаткові')]/ancestor::*[@class='block-profession_group']//*[@class='profession-bar_title']";
+    private static final String OPPORTUNITIES_SEARCH_TITLE = "p[class='opportunity-item_title p-l']']//*[@class='profession-bar_title']";
+    private static final String OPPORTUNITIES_SEARCH_DESCRIPTION = "//p[@class='p-s opportunity-item_descr']";
 
     private static final String PROGRAMMING_BUTTON = "//a[contains(text(),'Програмування')]";
     private static final String MANAGEMENT_BUTTON = "//a[contains(text(),'Менеджемент')]";
@@ -35,12 +36,12 @@ public class TestingPage {
     }
 
     protected List<String> getCourses() {
-        List<WebElement> coursesNames = driver.findElements(By.className(COURSES_XPATH_SELECTOR));
+        List<WebElement> coursesNames = driver.findElements(By.xpath(COURSES_XPATH_SELECTOR));
         return coursesNames.stream().map(WebElement::getText).toList();
     }
 
     protected List<String> getAdditionalCourses() {
-        List<WebElement> coursesNames = driver.findElements(By.className(ADDITIONAL_COURSES_CSS_SELECTOR));
+        List<WebElement> coursesNames = driver.findElements(By.xpath(ADDITIONAL_COURSES_XPATH_SELECTOR));
         return coursesNames.stream().map(WebElement::getText).toList();
     }
 
@@ -86,10 +87,16 @@ public class TestingPage {
             case "Дизайн" -> clickToDesignButton();
             case "Маркетинг" -> clickToMarketingButton();
             case "Підліткові курси" -> clickToTeensCoursesButton();
+            default -> throw new IllegalArgumentException("Wrong data");
         }
     }
     protected List<String> getOpportunities(){
-        List<WebElement> opportunities = driver.findElements(By.xpath(OPPORTUNITIES_SEARCH));
+        List<WebElement> opportunitiesTitle = driver.findElements(By.cssSelector(OPPORTUNITIES_SEARCH_TITLE));
+        List<WebElement> opportunities = driver.findElements(By.xpath(OPPORTUNITIES_SEARCH_DESCRIPTION));
+        for (WebElement oportunity: opportunities
+             ) {
+
+        }
         return opportunities.stream().map(WebElement::getText).toList();
     }
 }
