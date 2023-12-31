@@ -10,7 +10,7 @@ public class TestingPage {
     private static final String TESTING_PAGE = "https://ithillel.ua/courses/testing";
     private static final String COURSES_XPATH_SELECTOR = "//*[contains(text(), 'QA')]/ancestor::*[@class='block-profession_group']//*[@class='profession-bar_title']";
     private static final String ADDITIONAL_COURSES_XPATH_SELECTOR = "//*[contains(text(), 'Додаткові')]/ancestor::*[@class='block-profession_group']//*[@class='profession-bar_title']";
-    private static final String OPPORTUNITIES_SEARCH_TITLE = "p[class='opportunity-item_title p-l']']//*[@class='profession-bar_title']";
+    private static final String OPPORTUNITIES_SEARCH_TITLE = "p[class='opportunity-item_title p-l']";
     private static final String OPPORTUNITIES_SEARCH_DESCRIPTION = "//p[@class='p-s opportunity-item_descr']";
 
     private static final String PROGRAMMING_BUTTON = "//a[contains(text(),'Програмування')]";
@@ -90,13 +90,15 @@ public class TestingPage {
             default -> throw new IllegalArgumentException("Wrong data");
         }
     }
-    protected List<String> getOpportunities(){
+    protected String getOpportunities(){
         List<WebElement> opportunitiesTitle = driver.findElements(By.cssSelector(OPPORTUNITIES_SEARCH_TITLE));
         List<WebElement> opportunities = driver.findElements(By.xpath(OPPORTUNITIES_SEARCH_DESCRIPTION));
-        for (WebElement oportunity: opportunities
-             ) {
-
+        String mergedText = "";
+        for (int i = 0; i < opportunitiesTitle.size(); i++) {
+            WebElement titleElement = opportunitiesTitle.get(i);
+            WebElement opportunitiesElement = opportunities.get(i);
+            mergedText += titleElement.getText() + "\n" + opportunitiesElement.getText() + "\n" ;
         }
-        return opportunities.stream().map(WebElement::getText).toList();
+        return mergedText;
     }
 }
