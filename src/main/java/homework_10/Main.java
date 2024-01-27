@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        System.setProperty("console.encoding", "UTF-8");
         char[] charArray = args[0].toCharArray();
         Map<Character, Integer> result = countOfLetter(charArray);
         System.out.println(result);
