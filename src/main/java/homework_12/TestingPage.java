@@ -26,11 +26,11 @@ public class TestingPage {
     protected WebElement designButton;
     protected WebElement teensCoursesButton;
 
-    protected TestingPage(WebDriver driver) {
+    public TestingPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    protected TestingPage openPage() {
+    public TestingPage openPage() {
         driver.get(TESTING_PAGE);
         return this;
     }
@@ -40,7 +40,7 @@ public class TestingPage {
         return coursesNames.stream().map(WebElement::getText).toList();
     }
 
-    protected List<String> getAdditionalCourses() {
+    public List<String> getAdditionalCourses() {
         List<WebElement> coursesNames = driver.findElements(By.xpath(ADDITIONAL_COURSES_XPATH_SELECTOR));
         return coursesNames.stream().map(WebElement::getText).toList();
     }
