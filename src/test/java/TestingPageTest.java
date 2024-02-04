@@ -37,6 +37,4 @@ public class TestingPageTest {  // test suite
         //assert expectedResult == actual;
         Assert.assertEquals(actual, expectedResult);
     }
-
-
 }
