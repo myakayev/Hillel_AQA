@@ -1,4 +1,4 @@
-package homework_12.classwork_23;
+package classwork_23;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

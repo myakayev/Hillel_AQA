@@ -1,6 +1,8 @@
+import classwork_22.ConfigProvider;
 import homework_12.TestingPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -8,10 +10,11 @@ import org.testng.annotations.Test;
 
 
 public class TestingPageTest {  // test suite
-
-    @BeforeMethod // буде викоритовуватись перед кожним тестом
+    private WebDriver driver;
+    @BeforeMethod // буде використовуватись перед кожним тестом
     public void setUp() {
         System.out.println("setUp before method");
+        driver = ConfigProvider.getDriver();
     }
 
     @AfterMethod

@@ -1,5 +1,6 @@
 package homework_12;
 
+import classwork_22.ConfigProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class TestingPage {
-    private static final String TESTING_PAGE = "https://ithillel.ua/courses/testing";
+    private static final String TESTING_PAGE = "https://" + ConfigProvider.getBaseDomain() + "/courses/testing";
     private static final String COURSES_XPATH_SELECTOR = "//*[contains(text(), 'QA')]/ancestor::*[@class='block-profession_group']//*[@class='profession-bar_title']";
     private static final String ADDITIONAL_COURSES_XPATH_SELECTOR = "//*[contains(text(), 'Додаткові')]/ancestor::*[@class='block-profession_group']//*[@class='profession-bar_title']";
     private static final String OPPORTUNITIES_SEARCH_TITLE = "p[class='opportunity-item_title p-l']";

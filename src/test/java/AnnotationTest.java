@@ -5,6 +5,8 @@ public class AnnotationTest {
     @BeforeSuite
     public void preConditionBeforeSuite(){
         System.out.println("preConditionBeforeSuite");
+        System.getenv().forEach((key, value) -> System.out.println("key " + key + " value " + value));
+        System.out.println(System.getenv("browser"));
     }
 
     @BeforeMethod
