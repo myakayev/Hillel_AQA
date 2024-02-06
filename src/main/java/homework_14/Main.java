@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter first coefficient");
+        System.out.println("Введіть перший коефіцієнт");
         double firstCoefficient = scanner.nextDouble();
-        System.out.println("Enter second coefficient");
+        System.out.println("Введіть другий коефіцієнт");
         double secondCoefficient = scanner.nextDouble();
-        System.out.println("Enter third coefficient");
+        System.out.println("Введіть третій коефіцієнт");
         double thirdCoefficient = scanner.nextDouble();;
         scanner.close();
         QuadraticEquation quadraticEquation = new QuadraticEquation(firstCoefficient, secondCoefficient, thirdCoefficient);
-        System.out.println(QuadraticEquationSolution.getSolution(quadraticEquation));
+        QuadraticEquationSolution.printEquationResult(quadraticEquation);
     }
 }
