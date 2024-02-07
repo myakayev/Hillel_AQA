@@ -1,6 +1,9 @@
 package homework_12;
 
 import classwork_22.ConfigProvider;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,7 +25,7 @@ public class TestingPage {
 
     private final WebDriver driver;
     protected WebElement programmingButton;
-    protected WebElement managementButton;
+    protected SelenideElement managementButtonSelenide = Selenide.$x(MANAGEMENT_BUTTON);
     protected WebElement marketingButton;
     protected WebElement designButton;
     protected WebElement teensCoursesButton;
@@ -54,10 +57,7 @@ public class TestingPage {
     }
 
     void clickToManagementButton() {
-        if (managementButton == null) {
-            managementButton = driver.findElement(By.xpath(MANAGEMENT_BUTTON));
-        }
-        managementButton.click();
+        managementButtonSelenide.shouldBe(Condition.visible).click(); // не клікне, якщо не візібле; Шось воно не працює
     }
 
     void clickToMarketingButton() {

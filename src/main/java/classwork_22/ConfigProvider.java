@@ -7,6 +7,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Objects;
 import java.util.Properties;
 
 public class ConfigProvider {
@@ -24,7 +25,8 @@ public class ConfigProvider {
 
     public static WebDriver getDriver() {
         //int implicitlyWait = System.getenv("implicitly.wait");
-        String driverName = System.getenv("browser");
+        String driverName = Objects.isNull(System.getenv("browser")) ?    // перевіряємо, чи в енвайронменті записано змінну browser
+                properties.getProperty("browser") : System.getenv("browser"); // якщо ні - йдемо в проперті, якщо так - беремо тут
         WebDriver driver =
             switch (driverName) {
                 case "chrome":

@@ -16,13 +16,10 @@ public class TestingPageTest {  // test suite
         System.out.println("setUp before method");
         driver = ConfigProvider.getDriver();
     }
-
     @AfterMethod
     public void tearDown() {
         System.out.println("tearDown after method");
     }
-
-
     @Test
     public void searchLogicTest() {
         // local variable - input data + expected result
