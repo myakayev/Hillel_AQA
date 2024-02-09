@@ -11,10 +11,10 @@ public class LoginPage extends AbstractPage {
     private static final String LOGIN_PATH = "https://lms.ithillel.ua/auth";
     @FindBy (css = ".validation-messages__item.ng-star-inserted")
     private List<WebElement> validationMessages;
-    @FindBy(css = ".hi-input.ng-pristine.ng-invalid.ng-touched")
+    @FindBy(css = ".hi-input[type='email']")
     private WebElement emailField;
 
-    @FindBy(css = ".hi-input.ng-untouched,ng-pristine.ng-invalid")
+    @FindBy(css = ".hi-input[type='password']")
     private WebElement passwordField;
     @FindBy(css = ".hi-button[type='submit']")
     private WebElement signButton;
@@ -43,7 +43,7 @@ public class LoginPage extends AbstractPage {
         signButton.click();
     }
 
-    public List<String> getValidationMessages(){
+    public List<String>  getValidationMessages(){
         return validationMessages.stream().map(WebElement::getText).toList();
     }
 }

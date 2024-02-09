@@ -16,4 +16,5 @@ public abstract class AbstractPage {
     protected void openPage(String url){
         driver.get(url);
     }
+
 }
