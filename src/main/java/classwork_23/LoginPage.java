@@ -46,4 +46,11 @@ public class LoginPage extends AbstractPage {
     public List<String>  getValidationMessages(){
         return validationMessages.stream().map(WebElement::getText).toList();
     }
+
+    public LoginPage fillForm(User user){
+        emailField.sendKeys(user.getEmail());
+        passwordField.sendKeys(user.getPassword());
+        return this;
+    }
+
 }

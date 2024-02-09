@@ -1,8 +1,8 @@
 import classwork_22.ConfigProvider;
 import classwork_23.LoginPage;
+import classwork_23.User;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,7 +15,7 @@ public class LoginPageTest {
     private WebDriver driver;
     private LoginPage loginPage;
 
-    @BeforeMethod // буде використовуватись перед кожним тестом
+    @BeforeMethod
     public void setUp() {
         System.out.println("setUp before method");
         driver = ConfigProvider.getDriver();
@@ -23,7 +23,6 @@ public class LoginPageTest {
         loginPage.openPage();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-
 
     @AfterMethod
     public void tearDown() {
@@ -35,12 +34,20 @@ public class LoginPageTest {
     public void invalidEmailLoginTest(){
         String email = "wewr@ds";
         String pass = "pass";
-        String expectedValidationMessage = " Неправильна адреса електронної пошти ";
+        String expectedValidationMessage = "РќРµРїСЂР°РІРёР»СЊРЅР° Р°РґСЂРµСЃР° РµР»РµРєС‚СЂРѕРЅРЅРѕС— РїРѕС€С‚Рё";
 
+        //loginPage.fillForm(generateInvalidUser());
         loginPage.fillEmailField(email).fillPasswordField(pass);
 
         List<String> actualValidationMessages = loginPage.getValidationMessages();
-        System.out.println(actualValidationMessages);
         Assert.assertTrue(actualValidationMessages.contains(expectedValidationMessage));
+    }
+
+    private User generateInvalidUser(){
+        Faker faker = new Faker();
+        return User.builder()
+                .email(faker.internet().emailAddress())
+                .password(faker.internet().password())
+                .build();
     }
 }
