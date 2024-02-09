@@ -1,13 +1,16 @@
 package classwork_23;
 
 import classwork_18.AbstractPage;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-
+import java.util.logging.Logger;
+@Slf4j
 public class LoginPage extends AbstractPage {
+
     private static final String LOGIN_PATH = "https://lms.ithillel.ua/auth";
     @FindBy (css = ".validation-messages__item.ng-star-inserted")
     private List<WebElement> validationMessages;
@@ -25,6 +28,7 @@ public class LoginPage extends AbstractPage {
 
     @Override
     public LoginPage openPage() {
+        log.info("Open login page");
         driver.get(LOGIN_PATH);
         return this;
     }
@@ -35,11 +39,13 @@ public class LoginPage extends AbstractPage {
     }
 
     public LoginPage fillPasswordField(String pass){
+        log.info("Fill email field with value: {}", pass);
         passwordField.sendKeys(pass);
         return this;
     }
 
     public void clickSignInButton(){
+        log.info("Click sign in button");
         signButton.click();
     }
 
