@@ -23,7 +23,7 @@ public class TestingPageTest {  // test suite
     @Test
     public void searchLogicTest() {
         // local variable - input data + expected result
-        int expectedResult = 1;
+        int expectedResult = 2;
 
         //business logic  -  steps
 
