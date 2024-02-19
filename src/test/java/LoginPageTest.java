@@ -2,6 +2,10 @@ import classwork_22.ConfigProvider;
 import classwork_23.LoginPage;
 import classwork_23.User;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import org.mockito.Mockito;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,7 +18,8 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
+@Story("Login page test")
+@Feature("feature for login page test")
 public class LoginPageTest {
     private WebDriver driver;
     private LoginPage loginPage;
@@ -37,6 +42,7 @@ public class LoginPageTest {
  //   @Test(dataProvider = "generateUserWithInvalidEmail")
     @Test
     public void invalidEmailLoginTest() throws InterruptedException {
+        Allure.step("Fill test input");
         String email = "wewr@ds";
         String pass = "pass";
         String expectedValidationMessage = "Неправильна адреса електронної пошти";
@@ -44,7 +50,7 @@ public class LoginPageTest {
         User user = Mockito.mock(User.class);
         Mockito.when(user.getEmail()).thenReturn("wewr@ds");
         Mockito.when(user.getPassword()).thenReturn("pass");
-        User spy = Mockito.spy(user); // мокіто буде слфдкувати за цим об'єктом
+     //   User spy = Mockito.spy(user); // Мокіто буде слідкувати за цим об'єктом
        // loginPage.fillForm(generateInvalidUser()).clickSignInButton();
         loginPage.fillEmailField(email).fillPasswordField(pass);
        Thread.sleep(3000);

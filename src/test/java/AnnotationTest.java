@@ -1,3 +1,6 @@
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.*;
 
 public class AnnotationTest {
@@ -15,6 +18,8 @@ public class AnnotationTest {
     }
 
     @Test
+    @Description("Allure escription section for test")
+    @Severity(SeverityLevel.BLOCKER)
     public void firstTest(){
         System.out.println("First test");
     }

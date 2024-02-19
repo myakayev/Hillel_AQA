@@ -23,11 +23,12 @@ public class TestingPageTest {  // test suite
     @Test
     public void searchLogicTest() {
         // local variable - input data + expected result
-        int expectedResult = 2;
+        int expectedResult = 1;
 
         //business logic  -  steps
+
         WebDriver driver  = new ChromeDriver();
-        Runtime.getRuntime().addShutdownHook(new Thread(driver::quit)); // це замість quit. буде завжди браузер закриватись, не залежно від результат у
+        Runtime.getRuntime().addShutdownHook(new Thread(driver::quit)); // це замість quit. буде завжди браузер закриватись, не залежно від результату
 
         driver.manage().window().maximize();
         TestingPage testingPage = new TestingPage(driver);
