@@ -23,10 +23,11 @@ public class LoginPageCucumberSteps {
     @When("Fill email")
     public void fillEmailField(){
         loginPage.fillEmailField("sd@sdf");
+        //Assert.assertEquals(loginPage.getLoginFieldText(), "sd@sdf"); // класно робити після кожного кроку очікуваний результат. Перевірка, чи дійсно поле заповнилось
     }
     @When("Fill password")
     public void fillPasswordField(){
-        loginPage.fillPasswordField("sd@sdf");
+        loginPage.fillPasswordField("sdf");
     }
     @When("Click button")
     public void clickButton(){
@@ -34,9 +35,9 @@ public class LoginPageCucumberSteps {
     }
     @Then("Expected error message")
     public void assertMessage(){
-        String expectedValidationMessage = "����������� ������ ���������� �����";
+        String expectedValidationMessage = "Неправильна адреса електронної пошти";
         List<String> actualValidationMessages = loginPage.getValidationMessages();
         Assert.assertTrue(actualValidationMessages.contains(expectedValidationMessage));
-
+        //driver.quit();
     }
 }

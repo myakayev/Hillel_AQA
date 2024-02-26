@@ -59,4 +59,7 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    public String getLoginFieldText() {
+        return emailField.getText();
+    }
 }

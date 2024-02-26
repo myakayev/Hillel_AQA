@@ -3,4 +3,5 @@ Feature: Login page test
     Given Open login page
     When Fill email
     When Fill password
+    When Click button
     Then Expected error message
