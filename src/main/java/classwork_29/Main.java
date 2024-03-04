@@ -30,6 +30,9 @@ public class Main {
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.statusCode());
-        System.out.println(response.body());
+        String responseBody = response.body();
+        System.out.println(responseBody);
+
+        TokenModel tokenModel = objectMapper.readValue(responseBody, TokenModel.class);
     }
 }
