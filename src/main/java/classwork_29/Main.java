@@ -15,7 +15,7 @@ public class Main {
                 "  \"userName\": \"testLogin2\",\n" +
                 "  \"password\": \"testPassw0rd!\"\n" +
                 "}";
-        BookStoreUser user = new BookStoreUser("testUser4", "testPassw0rd!");
+        BookStoreUser user = new BookStoreUser("testUser5", "testPassw0rd!");
         ObjectMapper objectMapper = new ObjectMapper();
         String userBody = objectMapper.writeValueAsString(user);
         // System.out.println(userBody);
